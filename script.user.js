@@ -43,7 +43,7 @@ function applyFixedHeader() {
 
 // Refresh Points Every Minute
 function applyPointsUpdater() {
-    setInterval(function () {
+    setInterval(function() {
         $.ajax({
             url: "/ajax.php",
             type : "POST",
@@ -61,7 +61,7 @@ function applyPointsUpdater() {
 
 // Giveaway Enter/Remove Apply
 function applyEnterButtonDisplay() {
-    $('.giveaway__row-outer-wrap').each(function () {
+    $('.giveaway__row-outer-wrap').each(function() {
         var t = $(this);
 
         var url = t.find('.giveaway__heading__name').attr('href');
@@ -109,7 +109,7 @@ function applyEnterButtonDisplay() {
 function applyEnterButtonFunctionality() {
     $(".sidebar__entry-insert, .sidebar__entry-delete").unbind("click");
 
-    $(document).on('click', '.sidebar__entry-insert, .sidebar__entry-delete', function () {
+    $(document).on('click', '.sidebar__entry-insert, .sidebar__entry-delete', function() {
         var t = $(this);
 
         t.addClass("is-hidden");
@@ -121,7 +121,7 @@ function applyEnterButtonFunctionality() {
             type : "POST",
             dataType : "json",
             data : t.closest("form").serialize(),
-            success : function (e) {
+            success : function(e) {
                 t.closest("form").find(".sidebar__entry-loading").addClass("is-hidden");
 
                 if (e.type === "success") {
@@ -140,7 +140,7 @@ function applyEnterButtonFunctionality() {
 
     });
 
-    $(document).on('click', '.sidebar__error', function () {
+    $(document).on('click', '.sidebar__error', function() {
         $(this).addClass("is-hidden").parent().find(".sidebar__entry-insert").removeClass("is-hidden");
     });
 }
@@ -156,7 +156,7 @@ function updatePoints(activePoints) {
         activePoints = Number($(".nav__points").text());
     }
 
-    $('.giveaway__row-outer-wrap').each(function () {
+    $('.giveaway__row-outer-wrap').each(function() {
         var t = $(this);
 
         var requiredPoints = Number(t.find(".giveaway__heading__thin:last").text().replace("(", "").replace(")", "").replace("P", ""));
