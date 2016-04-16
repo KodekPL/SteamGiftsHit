@@ -5,6 +5,8 @@
 // @namespace	sgh
 // @include		*steamgifts.com*
 // @version		1.0
+// @downloadURL https://github.com/KodekPL/SteamGiftsHit/raw/master/script.user.js
+// @updateURL   https://github.com/KodekPL/SteamGiftsHit/raw/master/script.user.js
 // @run-at		document-end
 // @grant       none
 // ==/UserScript==
