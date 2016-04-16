@@ -16,7 +16,7 @@ $("body").prepend("<style>.sidebar__entry-custom {display: inline-block; margin:
 
 // Init Variables
 var xsrf = $('input[type=hidden][name=xsrf_token]').val();
-var loggedin = ($('.nav__sits').length > 0) ? false : true;
+var isLoggedIn = ($('.nav__sits').length > 0) ? false : true;
 var username = $(".nav__avatar-outer-wrap").attr("href").replace("/user/", "");
 
 // Init
@@ -41,7 +41,7 @@ function applyFixedHeader() {
     }
 }
 
-//Refresh points every min
+// Refresh Points Every Minute
 function applyPointsUpdater() {
     setInterval(function () {
         $.ajax({
@@ -52,7 +52,7 @@ function applyPointsUpdater() {
             success: function(e) {
                 if($(".nav__points").text() != e.points) {
                     $(".nav__points").text(e.points);
-                    update_points(e.points);
+                    updatePoints(e.points);
                 }
             }
         });
@@ -65,17 +65,17 @@ function applyEnterButtonDisplay() {
         var t = $(this);
 
         var url = t.find('.giveaway__heading__name').attr('href');
-        var giveawayId = url.substring(getStringPosition(url, '/', 2) + 1, getStringPosition(url, '/', 3));
+        var giveawayId = url.substring(getCharPosition(url, '/', 2) + 1, getCharPosition(url, '/', 3));
 
         var hasEntered = t.find('.giveaway__row-inner-wrap').hasClass('is-faded');
 
         var requiredPoints = Number(t.find(".giveaway__heading__thin:last").text().replace("(", "").replace(")", "").replace("P", ""));
         var activePoints = Number($(".nav__points").text());
-        var hasPoints = requiredPoints <= activePoints ? true : false;
+        var hasPoints = (requiredPoints <= activePoints) ? true : false;
         var giveawayCreator = t.find(".giveaway__username").text();
 
         //Enter/Remove button
-        if (loggedin && giveawayCreator != username) {
+        if (isLoggedIn && giveawayCreator != username) {
             var displayForm = [];
 
             displayForm.push("<form><input type=\"hidden\" name=\"xsrf_token\" value=\"");
@@ -134,7 +134,7 @@ function applyEnterButtonFunctionality() {
 
                 $(".nav__points").text(e.points);
 
-                update_points(e.points);
+                updatePoints(e.points);
             }
         });
 
@@ -145,13 +145,13 @@ function applyEnterButtonFunctionality() {
     });
 }
 
-// Utils - Get String Position
-function getStringPosition(str, m, i) {
-    return str.split(m, i).join(m).length;
+// Utils - Get Char Position
+function getCharPosition(str, char, limiter) {
+    return str.split(char, limiter).join(char).length;
 }
 
 // Utils - Update Points Display
-function update_points(activePoints) {
+function updatePoints(activePoints) {
     if (activePoints == -1) {
         activePoints = Number($(".nav__points").text());
     }
