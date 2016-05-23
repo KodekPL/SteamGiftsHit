@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name        SteamGifts Hit
 // @description	SteamGifts Accelerant
-// @author		Nandee & Kodek
-// @namespace	sgh
-// @include		*steamgifts.com*
-// @version		1.0
+// @author      Nandee & Kodek
+// @namespace   sgh
+// @include     *steamgifts.com/
+// @include     *steamgifts.com/giveaways/*
+// @versiom     1.0.1
 // @downloadURL https://github.com/KodekPL/SteamGiftsHit/raw/master/script.user.js
 // @updateURL   https://github.com/KodekPL/SteamGiftsHit/raw/master/script.user.js
-// @run-at		document-end
-// @grant       none
+// @run-at      document-end
 // ==/UserScript==
 
 // Apply custom style
