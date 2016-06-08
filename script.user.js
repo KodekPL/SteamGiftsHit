@@ -4,8 +4,9 @@
 // @author      Nandee & Kodek
 // @namespace   sgh
 // @include     *steamgifts.com/
-// @include     *steamgifts.com/giveaways/*
-// @versiom     1.0.1
+// @include     *steamgifts.com/giveaways/won/
+// @include     *steamgifts.com/discussions
+// @versiom     1.0.2
 // @downloadURL https://github.com/KodekPL/SteamGiftsHit/raw/master/script.user.js
 // @updateURL   https://github.com/KodekPL/SteamGiftsHit/raw/master/script.user.js
 // @run-at      document-end
